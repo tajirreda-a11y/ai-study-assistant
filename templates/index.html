@@ -2,29 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Study Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Welcome to the AI Study Assistant</h1>
-    <input type="text" id="question" placeholder="Ask a question">
-    <button onclick="askAI()">Ask AI</button>
-    <p id="response"></p>
 
-    <script>
-        async function askAI() {
-            let question = document.getElementById('question').value;
+    <div class="container">
+        <h1>AI Study Assistant</h1>
 
-            let response = await fetch('/ask', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ question: question })
-            });
-            let data = await response.json();
-            document.getElementById('response').innerText = data.answer;
-        }
-    </script>
+        <p class="subtitle">Ask a study question and get a simple answer.</p>
+
+        <div class="chat-box">
+            <input type="text" id="question" placeholder="Ask a question...">
+            <button id="askButton" onclick="askAI()">Ask AI</button>
+        </div>
+
+        <div id="chatContainer"></div>
+    </div>
+
+    <script src="/static/script.js"></script>
 </body>
 </html>
