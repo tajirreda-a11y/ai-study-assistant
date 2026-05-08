@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Study Assistant</title>
+</head>
+<body>
+    <h1>Welcome to the AI Study Assistant</h1>
+    <input type="text" id="question" placeholder="Ask a question">
+    <button onclick="askAI()">Ask AI</button>
+    <p id="response"></p>
+
+    <script>
+        async function askAI() {
+            let question = document.getElementById('question').value;
+
+            let response = await fetch('/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question: question })
+            });
+            let data = await response.json();
+            document.getElementById('response').innerText = data.answer;
+        }
+    </script>
+</body>
+</html>
