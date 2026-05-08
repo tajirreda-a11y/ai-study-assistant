@@ -11,6 +11,12 @@ AI Study Assistant is a simple web application that helps students ask study que
 - Send questions with Enter key
 - Local AI model using Ollama
 
+### Home Page
+![Home Page](screenshots/screenshot-home.png)
+
+### AI Chat Example
+![AI Chat Example](screenshots/screenshot-chat.png)
+
 ## Technologies Used
 
 - Python
